@@ -1,0 +1,56 @@
+#!/usr/bin/env sh
+
+# float options for apps
+yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Disk Utility$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Activity Monitor$" sticky=on layer=above manage=off
+yabai -m rule --add app="^TeamViewer$" sticky=off layer=above manage=off
+yabai -m rule --add app="^Spotify$" manage=off
+yabai -m rule --add app="^Console$" manage=off
+yabai -m rule --add app="^KeePassX$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
+yabai -m rule --add app="^Simulator$" manage=off
+yabai -m rule --add app="^Xcode" manage=off
+yabai -m rule --add app="^Menos" manage=off
+yabai -m rule --add app="^Reaper$" manage=off
+yabai -m rule --add app="^DaVinci Resolve$" manage=off
+yabai -m rule --add app="^Terminal$" manage=off
+yabai -m rule --add app="^AnyConnect$" manage=off
+
+# borders
+yabai -m config window_border                off
+yabai -m config window_border_width          3
+# yabai -m config active_window_border_color   0xff775759
+yabai -m config active_window_border_color   0xff66BB6A
+yabai -m config normal_window_border_color   0xff505050
+# yabai -m config insert_window_border_color   0xffd75f5f
+# yabai -m config insert_window_border_color   0xffE57373
+
+# some random global settings
+yabai -m config window_origin_display   default
+yabai -m config window_placement        second_child
+yabai -m config window_topmost          off
+yabai -m config window_opacity          off
+# yabai -m config window_border           off
+yabai -m config auto_balance            off
+yabai -m config split_ratio             0.50
+
+# mouse settings
+yabai -m config mouse_follows_focus     off
+yabai -m config focus_follows_mouse     off
+yabai -m config mouse_modifier          ctrl
+yabai -m config mouse_action2           resize    # modifier + right mouse
+yabai -m config mouse_action1           move      # modifier + left mouse
+
+# Change how yabai looks
+yabai -m config layout bsp
+yabai -m config top_padding 4
+yabai -m config bottom_padding 4
+yabai -m config left_padding 4
+yabai -m config right_padding 4
+yabai -m config window_gap 4
+
+echo "yabai configuration loaded.."
+
