@@ -1,0 +1,45 @@
+#!/bin/sh
+alias ls='ls --color=auto'
+alias j='z'
+alias f='zi'
+alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+# ls, the common ones I use a lot shortened for rapid fire usage
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ll='ls -l'      #long list
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+
+alias zshrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc' # Quick access to the .zshrc file
+
+alias t='tail -f'
+
+# easier to read disk
+alias df='df -Hl'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+
+# get top process eating memory
+alias psmem='ps aux | sort -nr -k 4 | head -5'
+
+# get top process eating cpu ##
+alias pscpu='ps aux | sort -nr -k 3 | head -5'
+
+# git aliases
+zsh_add_file "aliases/git.zsh"
+
