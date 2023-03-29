@@ -45,17 +45,16 @@ bindkey '^[[P' delete-char
 bindkey "^p" up-line-or-beginning-search # Up
 bindkey "^n" down-line-or-beginning-search # Down
 
-# FZF
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
-source /opt/homebrew/Cellar/fzf/0.37.0/shell/key-bindings.zsh
-source /opt/homebrew/Cellar/fzf/0.37.0/shell/completion.zsh
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+# OS related settings
+if [[ `uname` == "Darwin" ]]; then
+    source "$ZDOTDIR/os/macos.zsh"
+elif type "apt" > /dev/null; then
+    source "$ZDOTDIR/os/linux.zsh"
+else
+    echo "Unknown OS"
+fi
 
 # Edit line in vim with ctrl-e:
 # autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
 
-# zsh_add_file "themes/korff.zsh-theme"
-
-# export TERM=alacritty
