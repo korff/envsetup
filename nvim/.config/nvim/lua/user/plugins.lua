@@ -29,7 +29,6 @@ end
 
 -- Install your plugins here
 return lazy.setup({
-	"wbthomason/packer.nvim", -- Have packer manage itself
 	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
 	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
 	"numToStr/Comment.nvim",
