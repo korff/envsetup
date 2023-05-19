@@ -15,7 +15,13 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
-if type exa > /dev/null; then
+if type lsd > /dev/null; then
+    alias ls='lsd'
+    alias l='lsd -l'
+    alias ll='lsd -l'
+    alias la='lsd -la'
+    alias tree='lsd --tree'
+elif type exa > /dev/null; then
     alias ls='exa'
     alias l='exa -l'
     alias ll='exa -l'
