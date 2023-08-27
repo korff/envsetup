@@ -1,1 +1,0 @@
-clear && exec '/opt/homebrew/bin/csshX' '--slave' '--sock' '/var/folders/m_/3wjy73bj10bfm4yjjzsz1k640000gp/T/wCH3yKJ9Nk' '--slavehost' 'bamboo@linuxbuild-vm2.corp.captureone.com' '--debug' '0' '--ssh' 'ssh' '--ssh_args' '' '--remote_command' '' '--slaveid' '1'

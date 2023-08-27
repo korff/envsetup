@@ -1,1 +1,0 @@
-clear && exec '/opt/homebrew/bin/csshX' '--master' '--sock' '/var/folders/m_/3wjy73bj10bfm4yjjzsz1k640000gp/T/_ANS0erNmK' '--launchpid' '23594' '--screen' '0' '--debug' '0' '--tile_y' '0' '--tile_x' '0'
