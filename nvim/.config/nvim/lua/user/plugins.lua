@@ -19,63 +19,56 @@ if not status_ok then
 	return
 end
 
--- -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd([[
---   augroup lazy_user_config
---   autocmd!
---   autocmd BufWritePost plugins.lua source <afile> | Lazy sync
---   augroup end
--- ]])
-
 -- Install your plugins here
 return lazy.setup({
-	"nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
-	"windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
-	"numToStr/Comment.nvim",
-	-- "JoosepAlviste/nvim-ts-context-commentstring",
-	"kyazdani42/nvim-web-devicons",
-	"kyazdani42/nvim-tree.lua",
-	"akinsho/bufferline.nvim",
-	"moll/vim-bbye",
-	"nvim-lualine/lualine.nvim",
-	"akinsho/toggleterm.nvim",
-	"ahmedkhalf/project.nvim",
-	"lewis6991/impatient.nvim",
-	"lukas-reineke/indent-blankline.nvim",
-	"folke/which-key.nvim",
+    "nvim-lua/plenary.nvim", -- Useful lua functions used by lots of plugins
+    "windwp/nvim-autopairs", -- Autopairs, integrates with both cmp and treesitter
+    "numToStr/Comment.nvim",
+    -- "JoosepAlviste/nvim-ts-context-commentstring",
+    "kyazdani42/nvim-web-devicons",
+    {"kyazdani42/nvim-tree.lua", commit="ef305a888be2b9a0627369f00ccebbad88e6e3ce" }, 
+    "akinsho/bufferline.nvim",
+    "moll/vim-bbye",
+    "nvim-lualine/lualine.nvim",
+    "akinsho/toggleterm.nvim",
+    "ahmedkhalf/project.nvim",
+    "lewis6991/impatient.nvim",
+    "lukas-reineke/indent-blankline.nvim",
+    "folke/which-key.nvim",
+    "kylechui/nvim-surround",
 
-	-- Colorschemes
+    -- Colorschemes
     "sainnhe/gruvbox-material",
 
-	-- Show Colors
+    -- Show Colors
     "nvchad/nvim-colorizer.lua",
 
     "junegunn/vim-easy-align",
 
-	-- Completions
-	"hrsh7th/nvim-cmp",     -- The completion plugin
-	"hrsh7th/cmp-buffer",   -- buffer completions
-	"hrsh7th/cmp-path",     -- path completions
+    -- Completions
+    "hrsh7th/nvim-cmp",     -- The completion plugin
+    "hrsh7th/cmp-buffer",   -- buffer completions
+    "hrsh7th/cmp-path",     -- path completions
     "hrsh7th/cmp-cmdline",  -- nvim command line completions
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lua",
 
-	-- LSP
-	"neovim/nvim-lspconfig", -- enable LSP
-	"williamboman/mason.nvim", -- simple to use language server installer
-	"williamboman/mason-lspconfig.nvim",
-	"jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
-	"RRethy/vim-illuminate",
+    -- LSP
+    "neovim/nvim-lspconfig", -- enable LSP
+    "williamboman/mason.nvim", -- simple to use language server installer
+    "williamboman/mason-lspconfig.nvim",
+    "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
+    "RRethy/vim-illuminate",
 
-	-- Telescope
-	"nvim-telescope/telescope.nvim",
+    -- Telescope
+    "nvim-telescope/telescope.nvim",
 
-	-- Treesitter
-	"nvim-treesitter/nvim-treesitter",
+    -- Treesitter
+    "nvim-treesitter/nvim-treesitter",
 
-	-- Git
+    -- Git
     "tpope/vim-fugitive",
-	"lewis6991/gitsigns.nvim",
+    "lewis6991/gitsigns.nvim",
 
     -- Tools
     -- "Civitasv/cmake-tools.nvim",
