@@ -2,7 +2,7 @@ local servers = {
     "clangd",
     "cmake",
 	"jsonls",
-	"sumneko_lua",
+    "lua_ls",
 	-- "cssls",
 	-- "html",
 	-- "tsserver",
