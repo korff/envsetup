@@ -33,7 +33,7 @@ return lazy.setup({
     "akinsho/toggleterm.nvim",
     "ahmedkhalf/project.nvim",
     "lewis6991/impatient.nvim",
-    "lukas-reineke/indent-blankline.nvim",
+    {"lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     "folke/which-key.nvim",
     "kylechui/nvim-surround",
 
