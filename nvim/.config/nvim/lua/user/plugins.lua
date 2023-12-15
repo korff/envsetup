@@ -26,7 +26,7 @@ return lazy.setup({
     "numToStr/Comment.nvim",
     -- "JoosepAlviste/nvim-ts-context-commentstring",
     "kyazdani42/nvim-web-devicons",
-    {"kyazdani42/nvim-tree.lua", commit="ef305a888be2b9a0627369f00ccebbad88e6e3ce" }, 
+    {"kyazdani42/nvim-tree.lua", commit="ef305a888be2b9a0627369f00ccebbad88e6e3ce" },
     "akinsho/bufferline.nvim",
     "moll/vim-bbye",
     "nvim-lualine/lualine.nvim",
@@ -61,7 +61,6 @@ return lazy.setup({
     "neovim/nvim-lspconfig", -- enable LSP
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim",
-    "jose-elias-alvarez/null-ls.nvim", -- for formatters and linters
     "RRethy/vim-illuminate",
 
     -- Telescope
@@ -69,6 +68,7 @@ return lazy.setup({
 
     -- Treesitter
     "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/nvim-treesitter-context",
 
     -- Git
     "tpope/vim-fugitive",

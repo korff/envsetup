@@ -61,6 +61,11 @@ alias psmem='ps aux | sort -nr -k 4 | head -5'
 # get top process eating cpu ##
 alias pscpu='ps aux | sort -nr -k 3 | head -5'
 
+# Use dark color for ncdu
+if type ncdu > /dev/null; then
+    alias ncdu='ncdu --color=dark'
+fi
+
 # git aliases
 zsh_add_file "aliases/git.zsh"
 
