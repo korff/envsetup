@@ -1,0 +1,48 @@
+[env]
+LANG = "en_US.UTF-8"
+LC_CTYPE = "en_US.UTF-8"
+
+[window]
+decorations = "None"
+startup_mode = "Maximized"
+dynamic_padding = false
+padding = { x = 0, y = 0 }
+
+# Font section
+[font]
+size = 15
+
+[font.normal]
+family = "SauceCodePro NF"
+style = "Light"
+
+[font.bold]
+style = "Regular"
+
+# Color section
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.primary]
+background = "0x1D2021"
+foreground = "0xd4be98"
+
+[colors.normal]
+black   = "0x45403d"
+red     = "0xea6962"
+green   = "0xa9b665"
+yellow  = "0xd8a657"
+blue    = "0x7daea3"
+magenta = "0xd3869b"
+cyan    = "0x89b482"
+white   = "0xd4be98"
+
+[colors.bright]
+black   = "0x45403d"
+red     = "0xea6962"
+green   = "0xa9b665"
+yellow  = "0xd8a657"
+blue    = "0x7daea3"
+magenta = "0xd3869b"
+cyan    = "0x89b482"
+white   = "0xd4be98"
