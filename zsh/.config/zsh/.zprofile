@@ -1,3 +1,5 @@
 if [[ `uname` == "Darwin" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+    if type brew > /dev/null; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    fi
 fi
