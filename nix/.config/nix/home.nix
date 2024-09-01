@@ -6,6 +6,7 @@
         homeDirectory = "/Users/mko";
         packages = [
             # tools
+            pkgs.bat
             pkgs.binwalk
             pkgs.btop
             pkgs.cmus
@@ -41,6 +42,7 @@
             pkgs.ninja
             pkgs.nodejs
             pkgs.rustup
+            pkgs.tracy
         ];
     };
 
