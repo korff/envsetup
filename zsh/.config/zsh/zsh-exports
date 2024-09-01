@@ -1,7 +1,12 @@
 #!/bin/sh
 HISTFILE="$HOME"/.local/share/zsh/history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_SPACE  # Don't save when prefixed with space
+setopt HIST_IGNORE_DUPS   # Don't save duplicate lines
+setopt SHARE_HISTORY      # Share history between sessions
+
 export PATH="$HOME/.local/bin":$PATH
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
