@@ -15,18 +15,18 @@ alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
-if type lsd > /dev/null; then
+if type eza > /dev/null; then
+    alias ls='eza'
+    alias l='eza -l'
+    alias ll='eza -l --icons'
+    alias la='eza -la --icons'
+    alias tree='eza --tree'
+elif type lsd > /dev/null; then
     alias ls='lsd'
     alias l='lsd -l'
     alias ll='lsd -l'
     alias la='lsd -la'
     alias tree='lsd --tree'
-elif type exa > /dev/null; then
-    alias ls='exa'
-    alias l='exa -l'
-    alias ll='exa -l'
-    alias la='exa -la'
-    alias tree='exa --tree'
 else
     # ls, the common ones I use a lot shortened for rapid fire usage
     alias l='ls -lFh'     #size,show type,human readable
