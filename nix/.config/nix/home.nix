@@ -11,6 +11,7 @@
             pkgs.btop
             pkgs.cmus
             pkgs.duf
+            pkgs.eza
             pkgs.fd
             pkgs.fzf
             pkgs.htop
