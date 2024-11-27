@@ -10,6 +10,7 @@
             pkgs.binwalk
             pkgs.btop
             pkgs.cmus
+            pkgs.curl
             pkgs.duf
             pkgs.eza
             pkgs.fd
@@ -38,12 +39,26 @@
             pkgs.gnupg
             pkgs.lazygit
             pkgs.luarocks
+            pkgs.meson
             pkgs.nasm
             pkgs.neovim
             pkgs.ninja
             pkgs.nodejs
             pkgs.rustup
             pkgs.tracy
+
+            # lsps formats ...
+            pkgs.bash-language-server
+            pkgs.clang-tools
+            pkgs.nil
+            pkgs.nixpkgs-fmt
+            pkgs.stylua
+            pkgs.tree-sitter
+            pkgs.yaml-language-server
+            pkgs.yamllint
+            pkgs.zig
+            pkgs.zls
+
         ];
     };
 
