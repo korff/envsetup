@@ -12,9 +12,7 @@
             pkgs.cmus
             pkgs.curl
             pkgs.duf
-            pkgs.eza
             pkgs.fd
-            pkgs.fzf
             pkgs.htop
             pkgs.hyperfine
             pkgs.lsd
@@ -65,14 +63,4 @@
     xdg.enable = true;
 
     programs.home-manager.enable = true;
-    # programs.zsh = {
-    #     enable = true;
-    #     enableCompletion = true;
-    #     autosuggestion.enable = true;
-    #     syntaxHighlighting.enable = true;
-    #
-    #     shellAliases = {
-    #         ll = "ls -l";
-    #     };
-    # };
 }

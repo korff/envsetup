@@ -28,6 +28,8 @@
                         home-manager.users.mko = {
                             imports = [
                                 ./home.nix
+                                ./modules/shell.nix
+                                ./modules/fzf.nix
                             ];
                         };
                     }
