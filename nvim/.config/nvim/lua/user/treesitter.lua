@@ -4,14 +4,40 @@ if not status_ok then
 end
 
 configs.setup({
-    ensure_installed = { "bash", "c", "cmake", "cpp", "json", "lua", "python", "yaml", "markdown", "markdown_inline", "zig" }, -- one of "all" or a list of languages
+    ensure_installed = {
+        "bash",
+        "c",
+        "cmake",
+        "cpp",
+        "cuda",
+        "fish",
+        "glsl",
+        "hlsl",
+        "json",
+        "lua",
+        "luadoc",
+        "make",
+        "markdown",
+        "markdown_inline",
+        "meson",
+        "ninja",
+        "python",
+        "toml",
+        "vim",
+        "vimdoc",
+        "yaml",
+        "zig"
+    },
     ignore_install = { "phpdoc", "php", "go" }, -- List of parsers to ignore installing
     highlight = {
-        enable = true, -- false will disable the whole extension
-        disable = { "css" }, -- list of language that will be disabled
+        enable = true,
+        disable = {},
     },
     autopairs = {
         enable = true,
     },
-    indent = { enable = true, disable = { "python", "css" } },
+    indent = {
+        enable = true,
+        disable = { "python" }
+    },
 })
