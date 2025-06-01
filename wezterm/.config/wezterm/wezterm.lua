@@ -27,6 +27,11 @@ config.window_padding = {
     bottom = 1,
 }
 
+-- Workspace
+config.default_workspace = "main"
+
+config.status_update_interval = 1000
+
 -- Overrides based on window focus
 wezterm.on('update-status', function(window, pane)
     local overrides = window:get_config_overrides() or {}
@@ -56,7 +61,51 @@ wezterm.on('update-status', function(window, pane)
         }
     end
     window:set_config_overrides(overrides)
+    local basename = function(s)
+        -- Nothing a little regex can't fix
+        return string.gsub(s, "(.*[/\\])(.*)", "%2")
+    end
+    local stat = window:active_workspace()
+
+    -- Current working directory
+    local cwd = pane:get_current_working_dir()
+    if cwd then
+        cwd = basename(cwd.file_path)
+    else
+        cwd = ""
+    end
+
+    -- Current command
+    local cmd = pane:get_foreground_process_name()
+    cmd = cmd and basename(cmd) or ""
+
+    -- Left status (left of the tab line)
+    window:set_left_status(wezterm.format({
+        -- { Foreground = { Color = stat_color } },
+        { Text = "  " },
+        { Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
+        { Text = " |" },
+    }))
+
+    -- Right status
+    window:set_right_status(wezterm.format({
+        -- Wezterm has a built-in nerd fonts
+        -- https://wezfurlong.org/wezterm/config/lua/wezterm/nerdfonts.html
+        { Text = wezterm.nerdfonts.md_folder .. "  " .. cwd },
+        { Text = " | " },
+        -- { Foreground = { Color = custom_colors.yellow } },
+        { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
+        { Text = "  " },
+    }))
+
 end)
+
+config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
+config.keys = {
+
+    -- Workspace (similar to session in Tmux)
+    { key = "s", mods = "LEADER",      action = wezterm.action.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
+}
 
 -- HA settings
 config.max_fps = 60
