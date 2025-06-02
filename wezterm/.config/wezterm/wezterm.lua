@@ -102,9 +102,35 @@ end)
 
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.keys = {
+    -- Send C-a when pressing C-a twice
+    { key = "a", mods = "LEADER|CTRL",  action = wezterm.action.SendKey { key = "a", mods = "CTRL" } },
+    { key = "[", mods = "LEADER",       action = wezterm.action.ActivateCopyMode },
+    { key = ":", mods = "LEADER",       action = wezterm.action.ActivateCommandPalette },
 
     -- Workspace (similar to session in Tmux)
-    { key = "s", mods = "LEADER",      action = wezterm.action.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
+    { key = "s", mods = "LEADER",       action = wezterm.action.ShowLauncherArgs { flags = "FUZZY|WORKSPACES" } },
+    { key = "c", mods = "LEADER|SHIFT", action = wezterm.action.SwitchToWorkspace },
+    -- Rename current session; analagous to command in tmux
+    {
+        key = '$',
+        mods = 'LEADER|SHIFT',
+        action = wezterm.action.PromptInputLine {
+            description = 'Enter new name for session',
+            action = wezterm.action_callback(
+                function(window, pane, line)
+                    if line then
+                        wezterm.mux.rename_workspace(
+                            window:mux_window():get_workspace(),
+                            line
+                        )
+                    end
+                end
+            ),
+        },
+    },
+    -- Panes 
+    { key = "c", mods = "LEADER",       action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+
 }
 
 -- HA settings
