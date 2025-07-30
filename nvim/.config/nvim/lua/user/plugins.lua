@@ -63,6 +63,10 @@ return lazy.setup({
     "williamboman/mason-lspconfig.nvim",
     "RRethy/vim-illuminate",
 
+    -- Language support
+    "tikhomirov/vim-glsl",
+    "petRUShka/vim-opencl",
+
     -- Telescope
     { "nvim-telescope/telescope.nvim", dependencies = {
         "nvim-telescope/telescope-live-grep-args.nvim" ,
