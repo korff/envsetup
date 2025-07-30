@@ -91,6 +91,7 @@ local mappings = {
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help", nowait = true, remap = false },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
     { "<leader>sr", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
+    { "<leader>sg", "<cmd>Telescope live_grep_args<cr>", desc = "Live Grep Args", nowait = true, remap = false },
     { "<leader>t", group = "Terminal", nowait = true, remap = false },
     { "<leader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "Float", nowait = true, remap = false },
     { "<leader>th", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "Horizontal", nowait = true, remap = false },
