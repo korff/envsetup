@@ -12,7 +12,7 @@ config.font = wezterm.font('CaskaydiaMono Nerd Font', { stretch = 'Normal', weig
 config.font_size = 16
 
 -- Tab bar
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
 -- Window settings and decorations
