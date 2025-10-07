@@ -66,6 +66,7 @@ return lazy.setup({
     -- Language support
     "tikhomirov/vim-glsl",
     "petRUShka/vim-opencl",
+    "fei6409/log-highlight.nvim",
 
     -- Telescope
     { "nvim-telescope/telescope.nvim", dependencies = {
