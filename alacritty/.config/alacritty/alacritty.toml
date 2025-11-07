@@ -4,20 +4,18 @@ LC_CTYPE = "en_US.UTF-8"
 
 [window]
 decorations = "None"
-startup_mode = "Maximized"
-dynamic_padding = false
+startup_mode = "Windowed"
+dynamic_padding = true
 padding = { x = 0, y = 0 }
+blur = true
+opacity = 1.0
 
 # Font section
 [font]
-size = 11
-
-[font.normal]
-family = "CaskaydiaMono Nerd Font"
-style = "Regular"
-
-[font.bold]
-style = "Regular"
+normal = { family = "CaskaydiaMono Nerd Font", style = "Regular" }
+bold = { family = "CaskaydiaMono Nerd Font", style = "Bold" }
+italic = { family = "CaskaydiaMono Nerd Font", style = "Italic" }
+size = 12
 
 # Color section
 [colors]
