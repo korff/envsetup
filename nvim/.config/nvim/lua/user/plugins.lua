@@ -58,7 +58,6 @@ return lazy.setup({
     "L3MON4D3/LuaSnip",
 
     -- LSP
-    "neovim/nvim-lspconfig", -- enable LSP
     "williamboman/mason.nvim", -- simple to use language server installer
     "williamboman/mason-lspconfig.nvim",
     "RRethy/vim-illuminate",
