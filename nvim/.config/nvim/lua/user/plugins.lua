@@ -26,7 +26,7 @@ return lazy.setup({
     "numToStr/Comment.nvim",
     -- "JoosepAlviste/nvim-ts-context-commentstring",
     "kyazdani42/nvim-web-devicons",
-    {"kyazdani42/nvim-tree.lua", commit="ef305a888be2b9a0627369f00ccebbad88e6e3ce" },
+    "kyazdani42/nvim-tree.lua",
     "akinsho/bufferline.nvim",
     "moll/vim-bbye",
     "nvim-lualine/lualine.nvim",
