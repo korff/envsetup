@@ -1,7 +1,12 @@
-local status_ok, lspconfig = pcall(require, "lspconfig")
-if not status_ok then
-  return
-end
+vim.lsp.config('*', {
+  capabilities = {
+    textDocument = {
+      semanticTokens = {
+        multilineTokenSupport = true,
+      }
+    }
+  },
+  root_markers = { '.git' },
+})
 
 require "user.lsp.mason"
-require("user.lsp.handlers").setup()

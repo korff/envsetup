@@ -1,20 +1,15 @@
 local servers = {
-    -- "ansiblels",
-    "azure_pipelines_ls",
-    "bashls",
+    "azure-pipelines-language-server",
+    "bash-language-server",
     "clangd",
-    "cmake",
-    -- "cssls",
-    -- "hls",
-    "jsonls",
-    -- "ltex",
-    "lua_ls",
+    "cmake-language-server",
+    "json-lsp",
+    "lua-language-server",
     "marksman",
-    -- "ols",
-    "opencl_ls",
+    "opencl-language-server",
     "pyright",
-    -- "swift_mesonls",
-    "yamlls",
+    "slang",
+    "yaml-language-server",
     "zls",
 }
 
@@ -22,9 +17,9 @@ local settings = {
     ui = {
         border = "none",
         icons = {
-            package_installed = "◍",
-            package_pending = "◍",
-            package_uninstalled = "◍",
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
         },
     },
     log_level = vim.log.levels.INFO,
@@ -37,25 +32,60 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-    return
-end
+-- Keybindings
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+    callback = function(ev)
+        local opts = { buffer = ev.buf }
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    end,
+})
 
-local opts = {}
+-- mason binary path
+local mason_bin = vim.fn.stdpath('data') .. '/mason/bin/'
 
-for _, server in pairs(servers) do
-    opts = {
-        on_attach = require("user.lsp.handlers").on_attach,
-        capabilities = require("user.lsp.handlers").capabilities,
-    }
+-- cpp with frinds
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = {'c', 'cc', 'cpp', 'h', 'opencl', 'cl' },
+    callback = function()
+        vim.lsp.start({
+            name = 'clangd',
+            cmd = { mason_bin .. 'clangd', '--background-index' },
+            root_dir = vim.fs.root(0, {'.git', 'compile_commands.json'}),
+        })
+    end,
+})
 
-    server = vim.split(server, "@")[1]
+-- lua
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'lua',
+    callback = function()
+        vim.lsp.start({
+            name = 'lua_ls',
+            cmd = { mason_bin .. 'lua-language-server' },
+            root_dir = vim.fs.root(0, {'.git'}),
+            settings = {
+                Lua = {
+                    diagnostics = { globals = {'vim'} },
+                    workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+                },
+            },
+        })
+    end,
+})
 
-    local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
-    if require_ok then
-        opts = vim.tbl_deep_extend("force", conf_opts, opts)
-    end
-
-    lspconfig[server].setup(opts)
-end
+-- CMake
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'cmake',
+    callback = function()
+        vim.lsp.start({
+            name = 'cmake',
+            cmd = { mason_bin .. 'cmake-language-server' },
+            root_dir = vim.fs.root(0, {'.git', 'CMakeLists.txt'}),
+        })
+    end,
+})
