@@ -1,15 +1,15 @@
 local servers = {
-    "azure-pipelines-language-server",
-    "bash-language-server",
+    "azure_pipelines_ls",
+    "bashls",
     "clangd",
-    "cmake-language-server",
-    "json-lsp",
-    "lua-language-server",
+    -- "cmake",
+    "jsonls",
+    "lua_ls",
     "marksman",
-    "opencl-language-server",
+    "opencl_ls",
     "pyright",
-    "slang",
-    "yaml-language-server",
+    "slangd",
+    "yamlls",
     "zls",
 }
 
@@ -60,10 +60,24 @@ vim.api.nvim_create_autocmd('FileType', {
     end,
 })
 
+-- slang
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'shaderslang',
+    callback = function()
+        print(mason_bin .. 'slangd')
+        vim.lsp.start({
+            name = 'slangd',
+            cmd = { mason_bin .. 'slangd' },
+            root_dir = vim.fs.root(0, {'.git' }),
+        })
+    end,
+})
+
 -- lua
 vim.api.nvim_create_autocmd('FileType', {
     pattern = 'lua',
     callback = function()
+        print(mason_bin .. 'lua-language-server' )
         vim.lsp.start({
             name = 'lua_ls',
             cmd = { mason_bin .. 'lua-language-server' },
