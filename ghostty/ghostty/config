@@ -1,0 +1,14 @@
+# This is the configuration file for Ghostty.
+
+# Font
+font-family = "CaskaydiaMono Nerd Font"
+font-size = 15
+
+# Window settings
+window-decoration = none
+window-colorspace = display-p3
+window-padding-x = 0
+window-padding-y = 0
+
+# Theme
+theme = Material Design Colors
