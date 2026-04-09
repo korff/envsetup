@@ -6,8 +6,13 @@ opt.undofile = true                                 -- enable persistent undo
 
 opt.clipboard:append("unnamedplus")                 -- allows neovim to access the system clipboard
 opt.cmdheight = 2                                   -- more space in the neovim command line for displaying messages
-opt.completeopt = { "menuone", "noselect" }         -- mostly just for cmp
 opt.conceallevel = 0                                -- so that `` is visible in markdown files
+
+-- Auto complete
+opt.autocomplete = true
+opt.completeopt = { "menuone", "noselect", "fuzzy", "nosort" }         -- mostly just for cmp
+opt.pumborder = 'single'
+opt.complete:append('o')
 
 -- Encoding
 vim.scriptencoding = "utf-8"

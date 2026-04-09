@@ -45,61 +45,103 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.lsp.config['lua_ls'] = {
+    -- Command and arguments to start the server.
+    cmd = { 'lua-language-server' },
+    -- Filetypes to automatically attach to.
+    filetypes = { 'lua' },
+    -- Sets the "workspace" to the directory where any of these files is found.
+    -- Files that share a root directory will reuse the LSP server connection.
+    -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+    -- Specific settings to send to the server. The schema is server-defined.
+    -- Example: https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            }
+        }
+    }
+}
+
+vim.lsp.config['opencl_ls'] = {
+    -- Command and arguments to start the server.
+    cmd = { 'opencl-language-server' },
+    -- Filetypes to automatically attach to.
+    filetypes = { 'cl', 'opencl' },
+    -- Sets the "workspace" to the directory where any of these files is found.
+    -- Files that share a root directory will reuse the LSP server connection.
+    -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+    root_markers = { '.git' },
+}
+
+vim.lsp.enable(servers)
+
 -- mason binary path
 local mason_bin = vim.fn.stdpath('data') .. '/mason/bin/'
 
--- cpp with frinds
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'c', 'cc', 'cpp', 'h', 'opencl', 'cl' },
-    callback = function()
-        vim.lsp.start({
-            name = 'clangd',
-            cmd = { mason_bin .. 'clangd', '--background-index' },
-            root_dir = vim.fs.root(0, {'.git', 'compile_commands.json'}),
-        })
-    end,
+-- opencl
+vim.api.nvim_create_autocmd({'BufRead' ,'BufNewFile'}, {
+    pattern = '*.cl',
+    command = 'set filetype=opencl',
 })
 
--- slang
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'shaderslang',
-    callback = function()
-        print(mason_bin .. 'slangd')
-        vim.lsp.start({
-            name = 'slangd',
-            cmd = { mason_bin .. 'slangd' },
-            root_dir = vim.fs.root(0, {'.git' }),
-        })
-    end,
-})
-
--- lua
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'lua',
-    callback = function()
-        print(mason_bin .. 'lua-language-server' )
-        vim.lsp.start({
-            name = 'lua_ls',
-            cmd = { mason_bin .. 'lua-language-server' },
-            root_dir = vim.fs.root(0, {'.git'}),
-            settings = {
-                Lua = {
-                    diagnostics = { globals = {'vim'} },
-                    workspace = { library = vim.api.nvim_get_runtime_file("", true) },
-                },
-            },
-        })
-    end,
-})
-
--- CMake
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = 'cmake',
-    callback = function()
-        vim.lsp.start({
-            name = 'cmake',
-            cmd = { mason_bin .. 'cmake-language-server' },
-            root_dir = vim.fs.root(0, {'.git', 'CMakeLists.txt'}),
-        })
-    end,
-})
+-- -- cpp with frinds
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = {'c', 'cc', 'cpp', 'h', 'opencl', 'cl' },
+--     callback = function()
+--         vim.lsp.start({
+--             name = 'clangd',
+--             cmd = { mason_bin .. 'clangd', '--background-index' },
+--             root_dir = vim.fs.root(0, {'.git', 'compile_commands.json'}),
+--         })
+--     end,
+-- })
+--
+-- -- slang
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = 'shaderslang',
+--     callback = function()
+--         print(mason_bin .. 'slangd')
+--         vim.lsp.start({
+--             name = 'slangd',
+--             cmd = { mason_bin .. 'slangd' },
+--             root_dir = vim.fs.root(0, {'.git' }),
+--         })
+--     end,
+-- })
+--
+-- -- lua
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = 'lua',
+--     callback = function()
+--         print(mason_bin .. 'lua-language-server' )
+--         vim.lsp.start({
+--             name = 'lua_ls',
+--             cmd = { mason_bin .. 'lua-language-server' },
+--             root_dir = vim.fs.root(0, {'.git'}),
+--             settings = {
+--                 Lua = {
+--                     diagnostics = { globals = {'vim'} },
+--                     workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+--                 },
+--             },
+--         })
+--     end,
+-- })
+--
+-- -- CMake
+-- vim.api.nvim_create_autocmd('FileType', {
+--     pattern = 'cmake',
+--     callback = function()
+--         vim.lsp.start({
+--             name = 'cmake',
+--             cmd = { mason_bin .. 'cmake-language-server' },
+--             root_dir = vim.fs.root(0, {'.git', 'CMakeLists.txt'}),
+--         })
+--     end,
+-- })
