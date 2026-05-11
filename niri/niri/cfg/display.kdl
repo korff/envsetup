@@ -1,0 +1,6 @@
+// Display configuration
+
+output "ASUSTek COMPUTER INC ASUS PA329CV S4LMTF203868" {
+    mode "3840x2160@59.997"
+    scale 1.0
+}
