@@ -1,6 +1,23 @@
 // Display configuration
 
+output "eDP-1" {
+    mode "1920x1200@59.950"
+    scale 1
+    position x=0 y=0
+}
+
+output "Dell Inc. DELL U3223QE DGQK1H3" {
+    mode "3840x2160@59.997"
+    scale 1.1
+}
+
+output  "Dell Inc. DELL UP2716D KRXTR6AF835L" {
+    mode "2560x1440@59.951"
+    scale 1
+    transform "270"
+}
+
 output "ASUSTek COMPUTER INC ASUS PA329CV S4LMTF203868" {
     mode "3840x2160@59.997"
-    scale 1.0
+    scale 1.2
 }
