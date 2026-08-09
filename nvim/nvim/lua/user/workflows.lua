@@ -10,14 +10,18 @@ local function setup_telescope()
   return require("telescope.builtin")
 end
 
+local tree_configured = false
 local function setup_tree()
   if not packages.load("nvim-web-devicons") or not packages.load("nvim-tree.lua") then
     return false
   end
-  require("nvim-tree").setup({
-    update_focused_file = { enable = true, update_cwd = false },
-    view = { width = 40, side = "left" },
-  })
+  if not tree_configured then
+    require("nvim-tree").setup({
+      update_focused_file = { enable = true, update_cwd = false },
+      view = { width = 40, side = "left" },
+    })
+    tree_configured = true
+  end
   return true
 end
 
@@ -47,7 +51,12 @@ vim.api.nvim_create_user_command("SearchText", function()
 end, { desc = "Search project text" })
 vim.api.nvim_create_user_command("ExplorerToggle", function()
   if setup_tree() then
-    vim.cmd("NvimTreeToggle")
+    local tree = require("nvim-tree.api").tree
+    if tree.is_visible() then
+      tree.close()
+    else
+      tree.open()
+    end
   end
 end, { desc = "Toggle project explorer" })
 vim.api.nvim_create_user_command("TerminalToggle", function()

@@ -53,6 +53,12 @@ end
 
 assert_equal(vim.treesitter.language.get_lang("metal"), "cpp", "Metal parser fallback")
 
+local files_mapping = vim.fn.maparg("<leader>f", "n", false, true)
+assert_equal(files_mapping.rhs, "<cmd>SearchFiles<cr>", "file search mapping")
+if not vim.o.autocomplete then
+  fail("native popup completion is disabled")
+end
+
 if vim.fn.executable("slangd") == 0 then
   local messages = vim.api.nvim_exec2("messages", { output = true }).output
   if not messages:find("slangd", 1, true) then

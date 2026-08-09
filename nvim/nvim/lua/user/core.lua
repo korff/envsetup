@@ -19,6 +19,7 @@ opt.undofile = true
 opt.clipboard:append("unnamedplus")
 opt.completeopt = { "menuone", "noselect", "fuzzy", "nosort" }
 opt.complete:append("o")
+opt.autocomplete = true
 opt.expandtab = true
 opt.shiftwidth = 4
 opt.tabstop = 4
@@ -46,6 +47,7 @@ map("n", "<C-k>", "<C-w>k", { silent = true })
 map("n", "<C-l>", "<C-w>l", { silent = true })
 map("n", "<S-h>", "<cmd>bprevious<cr>", { silent = true })
 map("n", "<S-l>", "<cmd>bnext<cr>", { silent = true })
+map("n", "<leader>f", "<cmd>SearchFiles<cr>", { desc = "Search files", remap = false })
 map("v", "<", "<gv", { silent = true })
 map("v", ">", ">gv", { silent = true })
 map("v", "p", '"_dP', { silent = true })

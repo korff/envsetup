@@ -30,6 +30,10 @@ local group = vim.api.nvim_create_augroup("minimal_nvim_lsp", { clear = true })
 vim.api.nvim_create_autocmd("LspAttach", {
   group = group,
   callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    if client and client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, event.buf, { autotrigger = true })
+    end
     local map = function(keys, action, description)
       vim.keymap.set("n", keys, action, { buffer = event.buf, desc = description })
     end
