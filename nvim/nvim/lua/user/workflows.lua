@@ -142,9 +142,9 @@ local function cmake_command(name, fallback)
   end, { desc = fallback })
 end
 
-cmake_command("CMakeConfigure", "cmake -S . -B build")
-cmake_command("CMakeBuild", "cmake --build build")
-cmake_command("CMakeTest", "ctest --test-dir build")
+cmake_command("CMakeConfigure", "cmake -S . -B build-dir")
+cmake_command("CMakeBuild", "cmake --build build-dir")
+cmake_command("CMakeTest", "ctest --test-dir build-dir")
 
 local map = vim.keymap.set
 map("n", "<leader>sf", "<cmd>SearchFiles<cr>", { desc = "Search files" })

@@ -43,5 +43,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("<leader>lr", vim.lsp.buf.rename, "Rename")
     map("<leader>la", vim.lsp.buf.code_action, "Code action")
     map("<leader>ls", vim.lsp.buf.document_symbol, "Document symbols")
+    map("<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next ...")
+    map("<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Previous ...")
   end,
 })
