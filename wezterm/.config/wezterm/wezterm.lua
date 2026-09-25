@@ -9,23 +9,16 @@ config.color_scheme = 'Gruvbox dark, hard (base16)'
 
 -- Font
 config.font = wezterm.font('CaskaydiaMono Nerd Font', { stretch = 'Normal', weight = 'Regular' })
-config.font_size = 16
+config.font_size = 11
 
 -- Tab bar
 config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = false
 
 -- Window settings and decorations
-config.window_decorations = "RESIZE|MACOS_FORCE_SQUARE_CORNERS"
+config.window_decorations = "RESIZE"
 config.window_background_opacity = .9
 config.macos_window_background_blur = 90
-
-config.window_padding = {
-    left = 1,
-    right = 1,
-    top = 1,
-    bottom = 1,
-}
 
 -- Workspace
 config.default_workspace = "main"
@@ -35,31 +28,6 @@ config.status_update_interval = 1000
 -- Overrides based on window focus
 wezterm.on('update-status', function(window, pane)
     local overrides = window:get_config_overrides() or {}
-    if window:is_focused() then
-        overrides.window_frame = {
-            border_left_width = '4px',
-            border_right_width = '4px',
-            border_bottom_height = '4px',
-            border_top_height = '4px',
-            border_left_color = 'green',
-            border_right_color = 'green',
-            border_bottom_color = 'green',
-            border_top_color = 'green',
-
-        }
-    else
-        overrides.window_frame = {
-            border_left_width = '4px',
-            border_right_width = '4px',
-            border_bottom_height = '4px',
-            border_top_height = '4px',
-            border_left_color = 'grey',
-            border_right_color = 'grey',
-            border_bottom_color = 'grey',
-            border_top_color = 'grey',
-
-        }
-    end
     window:set_config_overrides(overrides)
     local basename = function(s)
         -- Nothing a little regex can't fix
@@ -136,6 +104,8 @@ config.keys = {
 -- HA settings
 config.max_fps = 60
 config.prefer_egl = false
+
+config.enable_wayland = false
 
 -- done
 return config

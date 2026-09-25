@@ -1,0 +1,68 @@
+/* Material-style theme for ReGreet (GTK4 CSS).
+ * Palettes: https://wiki.hyprland.org/Hypr-Ecosystem/hyprlock/ */
+* {
+    font-family: "CaskaydiaMono Nerd Font";
+}
+
+frame.background {
+    background-color: rgba(29, 38, 42, 0.85);
+    border: 1px solid rgba(112, 207, 255, 0.25);
+}
+
+label {
+    color: #e7ebed;
+}
+
+entry,
+passwordentry,
+combobox button {
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(231, 235, 237, 0.15);
+    color: #e7ebed;
+    padding: 8px 12px;
+    caret-color: #37b6ff;
+}
+
+entry:focus,
+passwordentry:focus,
+combobox button:focus {
+    border-color: #37b6ff;
+}
+
+entry selection,
+passwordentry selection {
+    background-color: #4e6a78;
+    color: #e7ebed;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(231, 235, 237, 0.15);
+    color: #e7ebed;
+    padding: 8px 16px;
+}
+
+button:hover {
+    background-color: rgba(78, 106, 120, 0.6);
+}
+
+button.suggested-action {
+    background-color: #37b6ff;
+    border-color: #37b6ff;
+    color: #1d262a;
+    font-weight: bold;
+}
+
+button.suggested-action:hover {
+    background-color: #70cfff;
+}
+
+button.destructive-action {
+    background-color: #fc3841;
+    border-color: #fc3841;
+    color: #1d262a;
+}
+
+button.destructive-action:hover {
+    background-color: #fc746d;
+}

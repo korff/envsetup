@@ -6,3 +6,4 @@ if status is-interactive
     # Set default editor
     set -Ux EDITOR nvim
 end
+export PATH="$HOME/.local/bin:$PATH"

@@ -1,0 +1,25 @@
+# Template processed by /etc/greetd/regreet.sh on every launch.
+# @HOSTNAME@  -> host name shown as the greeting
+# @BACKGROUND@ -> path of the (randomly chosen) background image
+skip_selection = true
+
+[background]
+path = "@BACKGROUND@"
+fit = "Cover"
+
+[GTK]
+application_prefer_dark_theme = true
+cursor_blink = false
+font_name = "CaskaydiaMono Nerd Font 16"
+icon_theme_name = "Papirus-Dark"
+theme_name = "Adwaita"
+
+[commands]
+reboot = ["systemctl", "reboot"]
+poweroff = ["systemctl", "poweroff"]
+
+[appearance]
+greeting_msg = "@HOSTNAME@"
+
+[widget.clock]
+format = "%a %d %b %H:%M"

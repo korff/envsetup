@@ -1,0 +1,6 @@
+// Minimal niri session that hosts the ReGreet login screen.
+// See https://github.com/rharish101/ReGreet#niri
+spawn-sh-at-startup "/etc/greetd/regreet.sh; niri msg action quit --skip-confirmation"
+hotkey-overlay {
+    skip-at-startup
+}
