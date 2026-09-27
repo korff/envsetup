@@ -25,6 +25,21 @@
   outputs = { nixpkgs, noctalia, noctalia-greeter, home-manager, ... } @ inputs:
   {
     nixosConfigurations = {
+      black-01 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          hostname = "black-01";
+          username = "korff";
+          envsetupRoot = ./..;
+          inherit inputs;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          noctalia.nixosModules.default
+          noctalia-greeter.nixosModules.default
+          ./machines/black-01
+        ];
+      };
       mko-lnx-01 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
