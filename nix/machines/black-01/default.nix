@@ -39,7 +39,6 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       brave
-      chromium
       cmus
       lazygit
       librewolf
@@ -51,6 +50,7 @@
       xwayland-satellite
       teams-for-linux
       thunderbird
+      ungoogled-chromium
       zig
     ];
   };
