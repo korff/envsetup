@@ -1,0 +1,53 @@
+// Niri configuration
+// stow --target=$HOME/.config niri
+
+include "./cfg/display.kdl"
+include "./cfg/input.kdl"
+include "./cfg/keybinds.kdl"
+include "./cfg/layout.kdl"
+
+// Noctalia integration
+spawn-at-startup "noctalia"
+
+// XWayland support (needed for Qt/X11 apps like RenderDoc)
+spawn-at-startup "xwayland-satellite"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+    slowdown 0.9
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+}
+
+// Window rules
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width { fixed 1080; }
+    default-window-height { fixed 920; }
+}
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+
+// Laptop lid
+switch-events {
+    lid-close {
+        spawn "noctalia" "msg" "session" "lock-and-suspend";
+    }
+}
