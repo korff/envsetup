@@ -10,7 +10,7 @@ padding = { x = 0, y = 0 }
 
 # Font section
 [font]
-size = 15
+size = 11
 
 [font.normal]
 family = "CaskaydiaMono Nerd Font"
@@ -23,26 +23,7 @@ style = "Regular"
 [colors]
 draw_bold_text_with_bright_colors = false
 
-[colors.primary]
-background = "0x1D2021"
-foreground = "0xd4be98"
-
-[colors.normal]
-black   = "0x45403d"
-red     = "0xea6962"
-green   = "0xa9b665"
-yellow  = "0xd8a657"
-blue    = "0x7daea3"
-magenta = "0xd3869b"
-cyan    = "0x89b482"
-white   = "0xd4be98"
-
-[colors.bright]
-black   = "0x45403d"
-red     = "0xea6962"
-green   = "0xa9b665"
-yellow  = "0xd8a657"
-blue    = "0x7daea3"
-magenta = "0xd3869b"
-cyan    = "0x89b482"
-white   = "0xd4be98"
+[general]
+import = [
+    "themes/material_design.toml"
+]
