@@ -35,6 +35,7 @@
       opencode
       reaper
       renderdoc
+      xwayland-satellite
       teams-for-linux
       thunderbird
       zig
@@ -46,7 +47,34 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "hm-bak";
     users.${username} = {
+      home.stateVersion = "26.05";
+      xdg.configFile."eza/theme.yml".text = ''
+        filenames:
+          desktop:   { icon: { glyph: "" } }
+          documents: { icon: { glyph: "󰲂" } }
+          downloads: { icon: { glyph: "󰉍" } }
+          movies:    { icon: { glyph: "󰿎" } }
+          music:     { icon: { glyph: "󱍙" } }
+          pictures:  { icon: { glyph: "󰉏" } }
+          videos:    { icon: { glyph: "" } }
+      '';
+
+      programs.yazi = {
+        enable = true;
+        enableFishIntegration = true;
+        theme.icon.prepend_dirs = [
+          { name = "desktop";   text = ""; fg = "#00bcd4"; }
+          { name = "documents"; text = ""; fg = "#00bcd4"; }
+          { name = "downloads"; text = ""; fg = "#00bcd4"; }
+          { name = "movies";    text = ""; fg = "#00bcd4"; }
+          { name = "music";     text = ""; fg = "#00bcd4"; }
+          { name = "pictures";  text = ""; fg = "#00bcd4"; }
+          { name = "videos";    text = ""; fg = "#00bcd4"; }
+        ];
+      };
+
       xdg.userDirs = {
         enable = true;
         createDirectories = true;
