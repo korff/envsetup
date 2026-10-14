@@ -10,13 +10,16 @@
     fzf
     git
     git-lfs
-    nerd-fonts.caskaydia-mono
-    nerd-fonts.noto
     ripgrep
     stow
     tmux
     vim
     wget
     yazi
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.caskaydia-mono
+    nerd-fonts.noto
   ];
 }
