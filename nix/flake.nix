@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia.url = "github:noctalia-dev/noctalia";
     noctalia-greeter = {
       url = "github:noctalia-dev/noctalia-greeter";
@@ -27,6 +31,7 @@
           inherit inputs;
         };
         modules = [
+          home-manager.nixosModules.home-manager
           noctalia.nixosModules.default
           noctalia-greeter.nixosModules.default
           ./machines/mko-lnx-01
