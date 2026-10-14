@@ -9,6 +9,9 @@
         term = "xterm-256color";
         font = "CaskaydiaMono Nerd Font:size=12";
       };
+      csd = {
+        preferred = "none";
+      };
       cursor = {
         style = "block";
       };
