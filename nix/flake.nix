@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     noctalia.url = "github:noctalia-dev/noctalia";
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   nixConfig = {
@@ -11,7 +15,7 @@
     extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
-  outputs = { nixpkgs, noctalia, ... } @ inputs:
+  outputs = { nixpkgs, noctalia, noctalia-greeter, ... } @ inputs:
   {
     nixosConfigurations = {
       mko-lnx-01 = nixpkgs.lib.nixosSystem {
@@ -24,6 +28,7 @@
         };
         modules = [
           noctalia.nixosModules.default
+          noctalia-greeter.nixosModules.default
           ./machines/mko-lnx-01
         ];
       };
