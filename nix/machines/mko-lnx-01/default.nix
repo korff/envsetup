@@ -14,6 +14,12 @@
 
   boot.initrd.luks.devices."luks-d209b235-6b68-4da1-a569-ebd2659cd6a0".device = "/dev/disk/by-uuid/d209b235-6b68-4da1-a569-ebd2659cd6a0";
 
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    open = false;
+  };
+
   networking.hostName = hostname;
 
   services.xserver.xkb = {
@@ -31,10 +37,12 @@
       chromium
       cmus
       lazygit
+      librewolf
       ollama
       opencode
       reaper
       renderdoc
+      signal-desktop
       xwayland-satellite
       teams-for-linux
       thunderbird
@@ -59,7 +67,7 @@
           music:     { icon: { glyph: "󱍙" } }
           pictures:  { icon: { glyph: "󰉏" } }
           videos:    { icon: { glyph: "" } }
-      '';
+        '';
 
       programs.yazi = {
         enable = true;
