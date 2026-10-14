@@ -42,4 +42,24 @@
   };
 
   system.stateVersion = "26.05";
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.${username} = {
+      xdg.userDirs = {
+        enable = true;
+        createDirectories = true;
+        desktop = "/home/${username}/desktop";
+        download = "/home/${username}/downloads";
+        documents = "/home/${username}/documents";
+        music = "/home/${username}/music";
+        pictures = "/home/${username}/pictures";
+        videos = "/home/${username}/videos";
+        templates = "/home/${username}";
+        publicShare = "/home/${username}";
+        projects = "/home/${username}";
+      };
+    };
+  };
 }
