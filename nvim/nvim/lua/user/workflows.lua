@@ -6,9 +6,26 @@ local function setup_telescope()
     return nil
   end
   local telescope = require("telescope")
-  telescope.setup({ defaults = { path_display = { "smart" } } })
+  telescope.setup({
+    defaults = {
+      path_display = { "smart" },
+      mappings = {
+        i = {
+          ["<C-Up>"] = "cycle_history_prev",
+          ["<C-Down>"] = "cycle_history_next",
+        },
+      },
+    },
+  })
   return require("telescope.builtin")
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopePrompt",
+  callback = function()
+    vim.bo.autocomplete = false
+  end,
+})
 
 local tree_configured = false
 local function setup_tree()
