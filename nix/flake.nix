@@ -19,6 +19,7 @@
         specialArgs = {
           hostname = "mko-lnx-01";
           username = "mko";
+          envsetupRoot = ./..;
           inherit inputs;
         };
         modules = [
