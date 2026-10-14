@@ -8,6 +8,13 @@
     recommendedServices.enable = true;
   };
 
+  programs.noctalia-greeter = {
+    enable = true;
+    settings = {
+      session.default = "niri";
+    };
+  };
+
   system.activationScripts.stow-desktop-configs = ''
     for pkg in niri noctalia; do
       src="${envsetupRoot}/$pkg/$pkg"
