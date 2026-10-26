@@ -3,6 +3,7 @@
 {
   programs.foot = {
     enable = true;
+    enableFishIntegration = true;
     theme = "material-design";
     settings = {
       main = {
@@ -16,6 +17,10 @@
         style = "block";
       };
     };
+  };
+
+  programs.fzf = {
+    keybindings = true;
   };
 
   programs.fish = {
