@@ -40,6 +40,21 @@
           ./machines/black-01
         ];
       };
+      black-02 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          hostname = "black-02";
+          username = "korff";
+          envsetupRoot = ./..;
+          inherit inputs;
+        };
+        modules = [
+          home-manager.nixosModules.home-manager
+          noctalia.nixosModules.default
+          noctalia-greeter.nixosModules.default
+          ./machines/black-02
+        ];
+      };
       mko-lnx-01 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
