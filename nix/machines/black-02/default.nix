@@ -6,6 +6,7 @@
     ../../modules/shell.nix
     ../../modules/desktop.nix
     ../../modules/packages.nix
+    ../../modules/development.nix
     ./hardware-configuration.nix
   ];
 
