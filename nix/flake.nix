@@ -40,6 +40,18 @@
           ./machines/black-01
         ];
       };
+      black-server = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          hostname = "black-server";
+          username = "korff";
+          envsetupRoot = ./..;
+          inherit inputs;
+        };
+        modules = [
+          ./machines/black-server
+        ];
+      };
       black-02 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {
