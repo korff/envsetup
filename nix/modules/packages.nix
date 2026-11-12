@@ -25,6 +25,7 @@ in
     tmux
     vim
     wget
+    wl-clipboard
     yazi
   ];
 

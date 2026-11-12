@@ -39,4 +39,9 @@
       ${pkgs.stow}/bin/stow --target="/home/${username}/.config" --dir="${envsetupRoot}" "$pkg"
     done
   '';
+
+    environment.systemPackages = with pkgs; [
+        kew
+    ];
+
 }
